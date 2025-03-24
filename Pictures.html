@@ -1,0 +1,81 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+    <head> 
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Line Following Robot Documentation</title>
+        <link rel="stylesheet" href="style.css">
+
+
+
+
+        <style>
+            body {
+                font-family: 'Times New Roman', Times, serif;
+                color: black;
+                background-color: #7f9292; /* Dark grayish blue */
+                color: white;
+            }
+    
+            .navbar {
+                overflow: hidden;
+                background-color: #333;
+            }
+    
+            .navbar a {
+                float: left;
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+    
+            .navbar a:hover {
+                background-color: #6489d3;
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+    
+        <div class="navbar">
+            <a href="Project.html">The Project</a>
+            <a href="Problem.html">The Problem</a>
+            <a href="Clips.html">Clips</a>
+            <a href="Pictures.html">Pictures</a>
+            <a href= "Code.html">The Code</a>
+            <a href= "Journal.html">Journal</a> 
+        </div>
+
+        <h1 style="font-size: 4em; margin: 0; color: rgb(41, 41, 41); text-align: center">Pictures</h1>
+
+        <h2 style="text-align: center;">Day 3</h2>
+        <img src="Day3.jpg" alt="Day 3" style="width: 500px; height: auto; text-align: center; display: block; margin-left: auto; margin-right: auto;">
+        
+        <div id= "hoverText" style= "position: absolute; color: gray; font-size: 1em; display: none">
+            <p>
+                Here we made a our own poster board for the robot, making the line in the shape of a square.
+            </p>
+        </div> 
+
+        <script>
+            const image = document.getElementById('hoverImage'); 
+            const hoverText = document.getElementById('hoverText');
+
+            image.addEventListener('mouseover',() => {
+            image.style.filter = 'brightness(50%)';
+            hoverText.style.opacity = '1';
+            hoverText.style.display = 'block';
+            });
+
+            image.addEventListener('mouseout', () => {
+                image.style.filter = 'brightness(100%)';
+                hoverText.style.opacity = '0';
+                hoverText.style.display = 'none'; 
+            }); 
+        </script>
+    </body>
+</html>

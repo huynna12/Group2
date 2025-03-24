@@ -1,0 +1,88 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+    <head> 
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Line Following Robot Documentation</title>
+        <link rel="stylesheet" href="style.css">
+
+
+
+
+        <style>
+            body {
+                font-family: 'Times New Roman', Times, serif;
+                color: black;
+                background-color: #7f9292; /* Dark grayish blue */
+                color: white;
+            }
+    
+            .navbar {
+                overflow: hidden;
+                background-color: #333;
+            }
+    
+            .navbar a {
+                float: left;
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+    
+            .navbar a:hover {
+                background-color: #6489d3;
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+    
+        <div class="navbar">
+            <a href="Project.html">The Project</a>
+            <a href="Problem.html">The Problem</a>
+            <a href="Clips.html">Clips</a>
+            <a href="Pictures.html">Pictures</a>
+            <a href= "Code.html">The Code</a>
+            <a href= "Journal.html">Journal</a> 
+        </div>
+
+        <h1 style="font-size: 4em; margin: 0; color: rgb(41, 41, 41); text-align: center">Journal</h1>
+
+    </p>
+
+            Day 1, March 2nd: We met in a small group to begin out project. We discussed the project and the best way to tackle it.
+            We also discussed the code we would need to write to make the robot work. We ran into a couple of problems when trying to connect our robot to the rasberypi software on our computers. Becuase we were having trouble with that we ended up just connecting the robot to a desktop computer so that we could start writing the code. 
+            
+
+    </p>
+
+    <p>
+        Day 2, March 6th: We still were not able to get the robot connected to the rasberypi software on our computers. 
+    </p>
+
+    <p>
+        Day 3, March 20th: We finally got the rasberypi connected to a desktop computer, however we were not able to find the previous groups code, nor were we able to connect the robot to our personal computers for romote use. We plan to meet with Professor Neller tomorrow to get his help.
+    </p>
+
+    <p>
+        Day 4, March 21st: We met with Professor Neller. It looks like we made a mistake with the sd card, undoing some of the work he had done.
+        He enabled our SSH and VNC again since those got disabled and he did some work in the terminal to get a romote connection to one of our laptops. 
+        After securing a romote connection we had to re-set up our robot due to the sd card mishap from before. 
+        We then ran the robot on the line poster, slowing down the speed so we could see the movements of the robot more clearly.
+        However editing the px_power and POWER variables did not really work. Following that, we spent most of our time with prof Neller trying to 
+        figure out why the robot head was gittering. It seems to be because the robot was not zeroing correctly, meaning it was undershooting zero and in tring to correct 
+        itself it was overshooting and causing the gittering. 
+    </p>
+    <p>
+        Day 5, March 22nd: We still were not able to fix the gittering issue. We just decided to focus on getting the sensors to correctly read blakc and white surfaces----detecting a cliff when reading white and not detecting a cliff when reading black. 
+        After major debugging in which we copy and pasted the original code from the website into a separate doc and then proceeded to check the grayscale sensor values to see what values were given for white versus black,
+        we were able to change the cliff_reference values to the correct threshold to get the picar to detect white as a cliff and black not as a cliff. However, the robot's calibration was way off and it was not moving in a straightline when reading black. We then changed the calibration of the robot to fix the issue, and it worked. 
+    </p>
+
+   
+
+</html>
