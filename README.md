@@ -20,4 +20,4 @@ The robot interprets the sensor readings into black (1) and white (0) based on t
  	
   	THRESHOLDS = [1400, 1400, 1400]  # [left, middle, right]
         gm_val_list = [802, 1480, 1450]
-	---> _state[1, 0, 0] ---> slightly goe to the left to get back on track
+	--> _state[1, 0, 0] --> slightly go to the left to get back on track
