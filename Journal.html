@@ -56,32 +56,58 @@
 
             Day 1, March 2nd: We met in a small group to begin out project. We discussed the project and the best way to tackle it.
             We also discussed the code we would need to write to make the robot work. We ran into a couple of problems when trying to connect our robot to the rasberypi software on our computers. Becuase we were having trouble with that we ended up just connecting the robot to a desktop computer so that we could start writing the code. 
-            
+            Members present: Heidi, Ellie, Josie (All present 1.5 hours)
 
     </p>
 
     <p>
         Day 2, March 6th: We still were not able to get the robot connected to the rasberypi software on our computers. 
+        Members present: Heidi, Ellie, Josie, Rob, Ashama (Ellie present .5 hours, All else present 1 hour).
+    </p>
+
+        Day 3, March 11th: We met with Professor Neller and got the work of the previous groups downloaded so we can continue the work from last semester. The head of our robot broke,
+        so Professor Neller said he would order a new part and help us in fixing it. 
+        Members present: Heidi (Present 4 hours).
+
+        >
+
+    <p>
+        Day 4, March 20th: We finally got the rasberypi connected to a desktop computer, however we were not able to find the previous groups code, nor were we able to connect the robot to our personal computers for romote use. We plan to meet with Professor Neller tomorrow to get his help.
+        Members present: Ellie, Josie, Rob, Ashama (All present 1.5 hours).
+
+        Day 4, March 20th Part 2: We met with Professor Neller to get connected to the robot remotely from our own computers and figured out the software to download.
+        Members present: Ellie (Present .5 hours).
     </p>
 
     <p>
-        Day 3, March 20th: We finally got the rasberypi connected to a desktop computer, however we were not able to find the previous groups code, nor were we able to connect the robot to our personal computers for romote use. We plan to meet with Professor Neller tomorrow to get his help.
-    </p>
-
-    <p>
-        Day 4, March 21st: We met with Professor Neller. It looks like we made a mistake with the sd card, undoing some of the work he had done.
+        Day 5, March 21st: We met with Professor Neller. It looks like we made a mistake with the sd card, undoing some of the work he had done.
         He enabled our SSH and VNC again since those got disabled and he did some work in the terminal to get a romote connection to one of our laptops. 
         After securing a romote connection we had to re-set up our robot due to the sd card mishap from before. 
         We then ran the robot on the line poster, slowing down the speed so we could see the movements of the robot more clearly.
         However editing the px_power and POWER variables did not really work. Following that, we spent most of our time with prof Neller trying to 
         figure out why the robot head was gittering. It seems to be because the robot was not zeroing correctly, meaning it was undershooting zero and in tring to correct 
         itself it was overshooting and causing the gittering. 
+        Members present: Heidi, Ellie, Josie, Rob, Ashama (All present 2 hours).
     </p>
     <p>
-        Day 5, March 22nd: We still were not able to fix the gittering issue. We just decided to focus on getting the sensors to correctly read blakc and white surfaces----detecting a cliff when reading white and not detecting a cliff when reading black. 
+        Day 6, March 22nd: We still were not able to fix the gittering issue. We just decided to focus on getting the sensors to correctly read blakc and white surfaces----detecting a cliff when reading white and not detecting a cliff when reading black. 
         After major debugging in which we copy and pasted the original code from the website into a separate doc and then proceeded to check the grayscale sensor values to see what values were given for white versus black,
         we were able to change the cliff_reference values to the correct threshold to get the picar to detect white as a cliff and black not as a cliff. However, the robot's calibration was way off and it was not moving in a straightline when reading black. We then changed the calibration of the robot to fix the issue, and it worked. 
+        Members present: Heidi, Ellie, Josie, Rob, Ashama (Ellie, Josie present 2 hours, Heidi present 2.5 hours, Rob, Ashama present 1.5 hours).
+
+        Day 6, March 22nd Part 2: We had success in making the robot understand where a turn is and making it, but it isn't following the line. We plan to work
+        next time on making sure that when there is a turn, it follows the black line.
+        Members present: Heidi, Ashama, Rob (All present 2 hours). 
     </p>
+
+        Day 7, March 24th: We presented to Professor Neller our line following progress, and he gave us suggestions on what to do next. We made note of his suggestions to work on next time we meet.
+        Members present: Heidi, Josie, Ashama (All present (.5 hours).
+
+        >
+
+        Day 8 March 28th: We continued work on the car based on the suggestions Professor Neller gave us in the demo meeting. We made significant progress with our turns. Now the robot moves backwards 
+        before making the turn to ensure that it finds the line again once the turn is complete. When turning right, this works most of the time. When turning left, it is having more trouble. 
+        Members present: Heidi, Ellie, Ashama, Josie (Josie present 1 hour, All else present 2 hours).
 
    
 
