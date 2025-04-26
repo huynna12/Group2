@@ -1,136 +1,88 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 
-    <head> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Line Following Robot Documentation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Line Following Robot Documentation</title>
-        <link rel="stylesheet" href="style.css">
+<body>
 
+    <div class="navbar">
+        <a href="Project.html">The Project</a>
+        <a href="Problem.html">The Problem</a>
+        <a href="Clips.html">Clips</a>
+        <a href="Pictures.html">Pictures</a>
+        <a href= "Code.html">The Code</a>
+        <a href= "Journal.html">Journal</a> 
+    </div>
 
-        <style>
-            body {
-                font-family: 'Times New Roman', Times, serif;
-                color: black;
-                background-color: #7f9292; /* Dark grayish blue */
-                color: white;
-            }
-    
-            .navbar {
-                overflow: hidden;
-                background-color: #333;
-            }
-    
-            .navbar a {
-                float: left;
-                display: block;
-                color: white;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-            }
-    
-            .navbar a:hover {
-                background-color: #6489d3;
-                color: black;
-            }
-        </style>
-    </head>
-    <body>
-    
-        <div class="navbar">
-            <a href="Project.html">The Project</a>
-            <a href="Problem.html">The Problem</a>
-            <a href="Clips.html">Clips</a>
-            <a href= "Code.html">The Code</a>
-            <a href= "Journal.html">Journal</a> 
-        </div>
-
-        <h1 style="font-size: 4em; margin: 0; color: rgb(41, 41, 41); text-align: center">Journal</h1>
-
-    </p>
-
-            Day 1, March 2nd: We met in a small group to begin out project. We discussed the project and the best way to tackle it.
-            We also discussed the code we would need to write to make the robot work. We ran into a couple of problems when trying to connect our robot to the rasberypi software on our computers. Becuase we were having trouble with that we ended up just connecting the robot to a desktop computer so that we could start writing the code. 
-            Members present: Heidi, Ellie, Josie (All present 1.5 hours)
-
-    </p>
+    <h1>Journal</h1>
 
     <p>
-        Day 2, March 6th: We still were not able to get the robot connected to the rasberypi software on our computers. 
-        Members present: Heidi, Ellie, Josie, Rob, Ashama (Ellie present .5 hours, All else present 1 hour).
+        <strong>Total Hours Spent:</strong><br>
+        Ashama: 15.75 hrs, Ellie: 16.75 hrs, Heidi: 19.5 hrs, Josie: 16 hrs,  Rob: 11.5 hrs 
     </p>
 
-        Day 3, March 11th: We met with Professor Neller and got the work of the previous groups downloaded so we can continue the work from last semester. The head of our robot broke,
-        so Professor Neller said he would order a new part and help us in fixing it. 
-        Members present: Heidi (Present 4 hours).
+    <p><strong>Day 1 – Mar 2:</strong> We met in a small group to begin out project. We discussed the project and the best way to tackle it.
+        We also discussed the code we would need to write to make the robot work. We ran into a couple of problems when trying to connect our robot to the rasberypi software on our computers. Becuase we were having trouble with that we ended up just connecting the robot to a desktop computer so that we could start writing the code. 
+        <br>Present: Heidi, Ellie, Josie (All present 1.5 hours)</p>
 
-        >
+    <p><strong>Day 2 – Mar 6:</strong> We still were not able to get the robot connected to the rasberypi software on our computers. 
+        <br>Present: Heidi, Ellie, Josie, Rob, Ashama (Ellie present .5 hours, All else present 1 hour).</p>
 
-    <p>
-        Day 4, March 20th: We finally got the rasberypi connected to a desktop computer, however we were not able to find the previous groups code, nor were we able to connect the robot to our personal computers for romote use. We plan to meet with Professor Neller tomorrow to get his help.
-        Members present: Ellie, Josie, Rob, Ashama (All present 1.5 hours).
+    <p><strong>Day 3 – Mar 11:</strong>We met with Professor Neller and got the work of the previous groups downloaded so we can continue the work from last semester. The head of our robot broke,
+        so Professor Neller said he would order a new part and help us in fixing it. <br>
+    Present: Heidi (4 hrs)</p>
 
-        Day 4, March 20th Part 2: We met with Professor Neller to get connected to the robot remotely from our own computers and figured out the software to download.
-        Members present: Ellie (Present .5 hours).
-    </p>
+    <p><strong>Day 4 – Mar 20:</strong> We finally got the rasberypi connected to a desktop computer, however we were not able to find the previous groups code, nor were we able to connect the robot to our personal computers for romote use. We plan to meet with Professor Neller tomorrow to get his help.
+        <br>Present: Ellie, Josie, Rob, Ashama (All present 1.5 hours).<br>
+    Later, met with Prof. Neller to install correct software.<br>
+    Present: Ellie (0.5 hr)</p>
 
-    <p>
-        Day 5, March 21st: We met with Professor Neller. It looks like we made a mistake with the sd card, undoing some of the work he had done.
+    <p><strong>Day 5 – Mar 21:</strong> We met with Professor Neller. It looks like we made a mistake with the sd card, undoing some of the work he had done.
         He enabled our SSH and VNC again since those got disabled and he did some work in the terminal to get a romote connection to one of our laptops. 
         After securing a romote connection we had to re-set up our robot due to the sd card mishap from before. 
         We then ran the robot on the line poster, slowing down the speed so we could see the movements of the robot more clearly.
         However editing the px_power and POWER variables did not really work. Following that, we spent most of our time with prof Neller trying to 
         figure out why the robot head was gittering. It seems to be because the robot was not zeroing correctly, meaning it was undershooting zero and in tring to correct 
         itself it was overshooting and causing the gittering. 
-        Members present: Heidi, Ellie, Josie, Rob, Ashama (All present 2 hours).
-    </p>
-    <p>
-        Day 6, March 22nd: We still were not able to fix the gittering issue. We just decided to focus on getting the sensors to correctly read blakc and white surfaces----detecting a cliff when reading white and not detecting a cliff when reading black. 
+        <br>Present: Heidi, Ellie, Josie, Rob, Ashama (All present 2 hours).</p>
+
+    <p><strong>Day 6 – Mar 22:</strong> We still were not able to fix the gittering issue. We just decided to focus on getting the sensors to correctly read blakc and white surfaces----detecting a cliff when reading white and not detecting a cliff when reading black. 
         After major debugging in which we copy and pasted the original code from the website into a separate doc and then proceeded to check the grayscale sensor values to see what values were given for white versus black,
-        we were able to change the cliff_reference values to the correct threshold to get the picar to detect white as a cliff and black not as a cliff. However, the robot's calibration was way off and it was not moving in a straightline when reading black. We then changed the calibration of the robot to fix the issue, and it worked. 
-        Members present: Heidi, Ellie, Josie, Rob, Ashama (Ellie, Josie present 2 hours, Heidi present 2.5 hours, Rob, Ashama present 1.5 hours).
+        we were able to change the cliff_reference values to the correct threshold to get the picar to detect white as a cliff and black not as a cliff. However, the robot's calibration was way off and it was not moving in a straightline when reading black. We then changed the calibration of the robot to fix the issue, and it worked. <br>
+    Present: Heidi, Ellie, Josie, Rob, Ashama (Ellie, Josie present 2 hours, Heidi present 2.5 hours, Rob, Ashama present 1.5 hours).<br>
+    Later, began working on line turns.<br>
+    Present: Heidi, Ashama, Rob (2 hrs each)</p>
 
-        Day 6, March 22nd Part 2: We had success in making the robot understand where a turn is and making it, but it isn't following the line. We plan to work
-        next time on making sure that when there is a turn, it follows the black line.
-        Members present: Heidi, Ashama, Rob (All present 2 hours). 
-    </p>
+    <p><strong>Day 7 – Mar 24:</strong> Presented progress to Prof. Neller and took notes for improvement.<br>
+    Present: Heidi, Josie, Ashama (0.5 hr each)</p>
 
-        Day 7, March 24th: We presented to Professor Neller our line following progress, and he gave us suggestions on what to do next. We made note of his suggestions to work on next time we meet.
-        Members present: Heidi, Josie, Ashama (All present (.5 hours).
+    <p><strong>Day 8 – Mar 28:</strong> We continued work on the car based on the suggestions Professor Neller gave us in the demo meeting. We made significant progress with our turns. Now the robot moves backwards 
+        before making the turn to ensure that it finds the line again once the turn is complete. When turning right, this works most of the time. When turning left, it is having more trouble. <br>
+    Present: Heidi, Ellie, Ashama, Josie (Josie present 1 hour, All else present 2 hours).</p>
 
-    </p>
+    <p><strong>Day 9 – Apr 4:</strong> We worked more on fixing the left turn. We talked with Professor Neller about how to get the turning to work on both sides and he gave us advice. Things ended up getting worse the more we tried, so we went back to the original code and started trouble shooting again.
+        While we didn't make much progress, the right turn works pretty well and the left turn very much overshot the line, but it eventually found it. This is an improvement from last time, but we still want it to find the line quicker and make a sharper turn. We will work on this next time. <br>
+    Present: Ellie, Josie, Rob (Ellie present 2.5 hours, Josie present 2 hours, Rob present 1 hour)</p>
 
-        Day 8, March 28th: We continued work on the car based on the suggestions Professor Neller gave us in the demo meeting. We made significant progress with our turns. Now the robot moves backwards 
-        before making the turn to ensure that it finds the line again once the turn is complete. When turning right, this works most of the time. When turning left, it is having more trouble. 
-        Members present: Heidi, Ellie, Ashama, Josie (Josie present 1 hour, All else present 2 hours).
+    <p><strong>Day 10 – Apr 5:</strong> Left turns improved, but robot struggles to stay on track afterward.<br>
+    Present: Heidi (1.5 hrs)</p>
 
-    </p>
+    <p><strong>Day 11 – Apr 11:</strong> We worked to perfect the left turn. We made it so the robot continues to move forward after the left turn. This works most of the time. We are workiing to make its accuracy improve. The biggest improvement we made today was making it so the robot readjusts if it turns
+        finding the line. It will back up until it sees a line and then try again. Next time, we plan on making sure this happens consistently. <br>
+    Present: Heidi, Ellie, Josie, Ashama (Heidi, Josie, Ashama present 2 hours, Ellie present 1 hour)</p>
 
-        Day 9, April 4th: We worked more on fixing the left turn. We talked with Professor Neller about how to get the turning to work on both sides and he gave us advice. Things ended up getting worse the more we tried, so we went back to the original code and started trouble shooting again.
-        While we didn't make much progress, the right turn works pretty well and the left turn very much overshot the line, but it eventually found it. This is an improvement from last time, but we still want it to find the line quicker and make a sharper turn. We will work on this next time. 
-        Members present: Ellie, Josie, Rob (Ellie present 2.5 hours, Josie present 2 hours, Rob present 1 hour)
+    <p><strong>Day 12 – Apr 18:</strong> Since we got the turns to happen consistantly, we moved onto some of the line following challenges. We got the robot to stop when it reaches an intersection and then moved onto having it choose a direction when it reaches one. It is only turning right as of now, so next time 
+        we are going to work on making it random. <br>
+    Present: Heidi, Ellie, Josie, Ashama, Rob (Ashama, Rob present 2 hours, Ellie, Josie present 1.5 hours, Heidi present 1 hour)</p>
 
-    </p>
+    <p><strong>Day 13 – Apr 25:</strong> We got the intersections to work more consistently, but it still misses it sometimes and just turns right. We feel we have made sufficient progress though, and we are excited to show the class what we have done. To make the intersecitons more consistent, we made the robot move 
+        forward when it thinks it sees a right turn to make sure there isn't another line to the left that it is missing. This has helped the consistency. <br>
+    Present: Ellie, Josie, Ashama, Rob (Ellie present 1.75 hours, Ashama present 1.25 hours, Josie present 1 hour, Rob present .5 hours)</p>
 
-        Day 10, April 5th: We worked to improve the left turn. Now it can successfully make a left turn, but it has trouble staying on the line afterward. 
-        Members present: Heidi (Present 1.5 hours)
-
-    </p>
-
-        Day 11, April 11th: We worked to perfect the left turn. We made it so the robot continues to move forward after the left turn. This works most of the time. We are workiing to make its accuracy improve. The biggest improvement we made today was making it so the robot readjusts if it turns
-        finding the line. It will back up until it sees a line and then try again. Next time, we plan on making sure this happens consistently. 
-        Members present: Heidi, Ellie, Josie, Ashama (Heidi, Josie, Ashama present 2 hours, Ellie present 1 hour.)
-    </p>
-
-        Day 12, April 18th: Since we got the turns to happen consistantly, we moved onto some of the line following challenges. We got the robot to stop when it reaches an intersection and then moved onto having it choose a direction when it reaches one. It is only turning right as of now, so next time 
-        we are going to work on making it random. 
-        Members present: Heidi, Ellie, Josie, Ashama, Rob (Ashama, Rob present 2 hours, Ellie, Josie present 1.5 hours, Heidi present 1 hour)
-
-    </p>
-
-        Day 13, April 25th: We got the intersections to work more consistently, but it still misses it sometimes and just turns right. We feel we have made sufficient progress though, and we are excited to show the class what we have done. To make the intersecitons more consistent, we made the robot move 
-        forward when it thinks it sees a right turn to make sure there isn't another line to the left that it is missing. This has helped the consistency. 
-        Members present: Ellie, Josie, Ashama, Rob (Ellie present 1.75 hours, Ashama present 1.25 hours, Josie present 1 hour, Rob present .5 hours)
+</body>
 </html>

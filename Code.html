@@ -1,226 +1,233 @@
 <!DOCTYPE html> 
 <html lang="en">
 
-    <head> 
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Line Following Robot Documentation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Line Following Robot Documentation</title>
-        <link rel="stylesheet" href="style.css">
+<body>
 
+    <div class="navbar">
+        <a href="Project.html">The Project</a>
+        <a href="Problem.html">The Problem</a>
+        <a href="Clips.html">Clips</a>
+        <a href="Pictures.html">Pictures</a>
+        <a href= "Code.html">The Code</a>
+        <a href= "Journal.html">Journal</a> 
+    </div>
 
+    <h1>The Code</h1>
 
+    <section id="code-section">
+        <pre>
+        <!-- <code> -->
+    from picarx import Picarx
+    from time import sleep
+    import random 
 
-        <style>
-            body {
-                font-family: 'Times New Roman', Times, serif;
-                color: black;
-                background-color: #7f9292; /* Dark grayish blue */
-                color: white;
-            }
-    
-            .navbar {
-                overflow: hidden;
-                background-color: #333;
-            }
-    
-            .navbar a {
-                float: left;
-                display: block;
-                color: white;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-            }
-    
-            .navbar a:hover {
-                background-color: #6489d3;
-                color: black;
-            }
-        </style>
-    </head>
-    <body>
-    
-        <div class="navbar">
-            <a href="Project.html">The Project</a>
-            <a href="Problem.html">The Problem</a>
-            <a href="Clips.html">Clips</a>
-            <a href= "Code.html">The Code</a>
-            <a href= "Journal.html">Journal</a> 
-        </div>
+    px = Picarx()
 
-        <h1 style="font-size: 4em; margin: 0; color: rgb(41, 41, 41); text-align: center">The Code</h1>
+    px.set_line_reference([1400, 1400, 1400])
 
-        <p>
-            
-            <pre style="background-color: rgba(86, 167, 86, 0.942); color: white; padding: 10px; border-radius: 5px;">
-            <code>
-            from picarx import Picarx
-            from time import sleep
-            import random 
+    current_state = None
+    px_power = 2
+    offset = 25
+    last_state = "stop"
+    intersection_counter = 0
+    intersection_threshold = 2  # Number of frames needed to confirm intersection
 
-            px = Picarx()
+    def outHandle():
+        global last_state, current_state
+        # Instead of moving backward, try turning to help the robot find the line again
+        if last_state == 'left':
+            px.set_dir_servo_angle(-offset)
+            px.forward(px_power)  # Move forward with a slight left angle to adjust
+        elif last_state == 'right':
+            px.set_dir_servo_angle(offset)
+            px.forward(px_power)  # Move forward with a slight right angle to adjust
+        sleep(0.001)
 
-            # Please run ./calibration/grayscale_calibration.py to Auto calibrate grayscale values
-            # or manually modify reference value by following the code
-            px.set_line_reference([1400, 1400, 1400])
-
-            current_state = None
-            px_power = 2
-            offset = 25
-            last_state = "stop"
-            intersection_counter = 0
-            intersection_threshold = 2  # Number of frames needed to confirm intersection
-
-            def outHandle():
-                global last_state, current_state
-                # Instead of moving backward, try turning to help the robot find the line again
-                if last_state == 'left':
-                    px.set_dir_servo_angle(-offset)
-                    px.forward(px_power)  # Move forward with a slight left angle to adjust
-                elif last_state == 'right':
-                    px.set_dir_servo_angle(offset)
-                    px.forward(px_power)  # Move forward with a slight right angle to adjust
-                sleep(0.001)
-
-            def get_status(val_list):
-                """Get the car's state based on grayscale values."""
-                _state = px.get_line_status(val_list)  # [1 = line (black), 0 = background (white)]
+    def get_status(val_list):
+        """Get the car's state based on grayscale values."""
+        _state = px.get_line_status(val_list)  # [1 = line (black), 0 = background (white)]
                 
-                global intersection_counter
+        global intersection_counter
                 
-                # Prioritize forward detection first (middle sensor sees black)
-                if _state[0] == 1 and _state[1] == 1 and _state[2] == 1:
-                    intersection_counter += 1
-                    if intersection_counter >= intersection_threshold:
-                        return 'intersect'
-                    else:
-                        return 'forward'  # Still driving forward while confirming
-                else:
-                    intersection_counter = 0  # Reset counter if not all black
+        # Prioritize forward detection first (middle sensor sees black)
+        if _state[0] == 1 and _state[1] == 1 and _state[2] == 1:
+            intersection_counter += 1
+            if intersection_counter >= intersection_threshold:
+                return 'intersect'
+            else:
+                return 'forward'  # Still driving forward while confirming
+        else:
+            intersection_counter = 0  # Reset counter if not all black
 
                 
-                if _state[1] == 1 and _state[0] == 0 and _state[2] == 0:  # middle sensor sees black (line detected)
-                    return 'forward'
-                #elif _state[0] == 1 and _state [1] == 1 and _state[2] == 1:
-                    #return 'intersect'
-                elif _state[0] == 0 and _state[1] == 1 and _state[2] == 1:
-                    return 'turn_left'
-                elif _state[0] == 1 and _state[1] == 1 and _state[2] == 0:
-                    px.forward(px_power)
-                    if _state[0] == 1 and _state[1] == 1 and _state[2] == 0:
-                        return 'turn_right'
-                    if _state[0] == 1 and _state[1] == 1 and _state[2] == 1:
-                        intersection_counter += 1
-                        if intersection_counter >= intersection_threshold:
-                            return 'intersect'
-                # Handle turning cases
-                elif _state[2] == 1:  # Left sensor sees black (line detected)
-                    return 'left'
-                elif _state[0] == 1:  # Right sensor sees black (line detected)
-                    return 'right'
+        if _state[1] == 1 and _state[0] == 0 and _state[2] == 0:  # middle sensor sees black (line detected)
+            return 'forward'
+        #elif _state[0] == 1 and _state [1] == 1 and _state[2] == 1:
+        #return 'intersect'
+        elif _state[0] == 0 and _state[1] == 1 and _state[2] == 1:
+            return 'turn_left'
+        elif _state[0] == 1 and _state[1] == 1 and _state[2] == 0:
+            px.forward(px_power)
+            if _state[0] == 1 and _state[1] == 1 and _state[2] == 0:
+                return 'turn_right'
+            if _state[0] == 1 and _state[1] == 1 and _state[2] == 1:
+                intersection_counter += 1
+                if intersection_counter >= intersection_threshold:
+                    return 'intersect'
+        # Handle turning cases
+        elif _state[2] == 1:  # Left sensor sees black (line detected)
+            return 'left'
+        elif _state[0] == 1:  # Right sensor sees black (line detected)
+            return 'right'
                 
-                # If all sensors see white (no line detected)
-                else:
-                    return 'stop'
-            def adjust_turn_direction(gm_state):
-                """Adjust the turning behavior based on current state."""
+        # If all sensors see white (no line detected)
+        else:
+            return 'stop'
+    def adjust_turn_direction(gm_state):
+        """Adjust the turning behavior based on current state."""
                 
-                if gm_state == 'left':
-                    px.set_dir_servo_angle(-offset) # turn left
-                    px.forward(px_power)  # move slightly forward while turning
+        if gm_state == 'left':
+            px.set_dir_servo_angle(-offset) # turn left
+            px.forward(px_power)  # move slightly forward while turning
                    
-                elif gm_state == 'right':
-                    px.set_dir_servo_angle(offset)  # turn right
-                    px.forward(px_power)  # move slightly forward while turning
+        elif gm_state == 'right':
+            px.set_dir_servo_angle(offset)  # turn right
+            px.forward(px_power)  # move slightly forward while turning
                     
-                elif gm_state == 'turn_left':
-                    print("Recovery: turn left")
-                    px.set_dir_servo_angle(0)
-                    px.backward(px_power)
-                    sleep(.4)
-                    px.set_dir_servo_angle(-offset)
-                    px.forward(px_power)  # Move forward with a slight left angle to adjust
-                    sleep(.5)
+        elif gm_state == 'turn_left':
+            print("Recovery: turn left")
+            px.set_dir_servo_angle(0)
+            px.backward(px_power)
+            sleep(.4)
+            px.set_dir_servo_angle(-offset)
+            px.forward(px_power)  # Move forward with a slight left angle to adjust
+            sleep(.5)
                    
-                elif gm_state == 'turn_right':
-                    print("Recovery: turn right")
-                    px.set_dir_servo_angle(0)
-                    px.backward(px_power)
-                    sleep(.4)
-                    px.set_dir_servo_angle(offset)
-                    px.forward(px_power)
-                    sleep(.5)
+        elif gm_state == 'turn_right':
+            print("Recovery: turn right")
+            px.set_dir_servo_angle(0)
+            px.backward(px_power)
+            sleep(.4)
+            px.set_dir_servo_angle(offset)
+            px.forward(px_power)
+            sleep(.5)
                    
                    
-                sleep(0.01)
+        sleep(0.01)
                 
-            def intersection():
-                exit_spoke = random.randint(1,3) 
-                print("RANDO: " , exit_spoke)
-                if exit_spoke == 1:
-                    return 'turn_left'
-                elif exit_spoke == 2:
-                    return 'forward'
-                elif exit_spoke == 3:
-                    return 'turn_right'
+    def intersection():
+        exit_spoke = random.randint(1,3) 
+        print("RANDO: " , exit_spoke)
+        if exit_spoke == 1:
+            return 'turn_left'
+        elif exit_spoke == 2:
+            return 'forward'
+        elif exit_spoke == 3:
+            return 'turn_right'
                
-            if __name__=='__main__':
-                try:
-                    #flag = True
-                    while True:
-                        gm_val_list = px.get_grayscale_data()
-                        gm_state = get_status(gm_val_list)
-                        print("gm_val_list: %s, %s"%(gm_val_list, gm_state))
+    if __name__=='__main__':
+        try:
+            #flag = True
+            while True:
+                gm_val_list = px.get_grayscale_data()
+                gm_state = get_status(gm_val_list)
+                print("gm_val_list: %s, %s"%(gm_val_list, gm_state))
                         
-                        if last_state == 'turn_left' and gm_state != 'right':
-                            px.forward(px_power)
-                            continue
-                        elif last_state == 'turn_right' and gm_state != 'left':
-                            px.forward(px_power)
-                            continue
-                        if gm_state != "stop":
-                            last_state = gm_state
+                if last_state == 'turn_left' and gm_state != 'right':
+                    px.forward(px_power)
+                    continue
+                elif last_state == 'turn_right' and gm_state != 'left':
+                    px.forward(px_power)
+                    continue
+                if gm_state != "stop":
+                    last_state = gm_state
                             
-                        if gm_state == 'intersect':
-                            sleep(1)
-                            direction = intersection()
-                            print("interDir: " , direction)
-                            if direction == 'forward':
-                                # Just move forward
-                                px.set_dir_servo_angle(0)
-                                px.forward(px_power)
-                            else:
-                                adjust_turn_direction(direction)
-                            last_state = direction
-                            continue
+                if gm_state == 'intersect':
+                    sleep(1)
+                    direction = intersection()
+                    print("interDir: " , direction)
+                    if direction == 'forward':
+                        # Just move forward
+                        px.set_dir_servo_angle(0)
+                        px.forward(px_power)
+                    else:
+                        adjust_turn_direction(direction)
+                    last_state = direction
+                    continue
                             
-                        # Forward movement when the center sees the line (middle sensor sees black)
-                        elif gm_state == 'forward':
-                            px.set_dir_servo_angle(0)  # center servo angle
-                            px.forward(px_power)
-                        elif gm_state == 'turn_left':
-                            adjust_turn_direction('turn_left')
-                        elif gm_state == 'turn_right':
-                            adjust_turn_direction('turn_right')
-                        # Turning left when the left sensor sees the line (left sensor sees black)
-                        elif gm_state == 'left':
-                            adjust_turn_direction('left')
+                # Forward movement when the center sees the line (middle sensor sees black)
+                elif gm_state == 'forward':
+                    px.set_dir_servo_angle(0)  # center servo angle
+                    px.forward(px_power)
+                elif gm_state == 'turn_left':
+                    adjust_turn_direction('turn_left')
+                elif gm_state == 'turn_right':
+                    adjust_turn_direction('turn_right')
+                # Turning left when the left sensor sees the line (left sensor sees black)
+                elif gm_state == 'left':
+                    adjust_turn_direction('left')
                         
-                        # Turning right when the right sensor sees the line (right sensor sees black)
-                        elif gm_state == 'right':                
-                            adjust_turn_direction('right')
+                # Turning right when the right sensor sees the line (right sensor sees black)
+                elif gm_state == 'right':                
+                    adjust_turn_direction('right')
                             
-                        # If no line is detected (all sensors see white)
-                        else:
-                            outHandle()
+                # If no line is detected (all sensors see white)
+                else:
+                    outHandle()
 
-                finally:
-                    px.stop()
-                    print("stop and exit")
-                    sleep(0.1)
-            </code>
-            </pre>
+        finally:
+            px.stop()
+            print("stop and exit")
+            sleep(0.1)
+        <!-- </code> -->
+        </pre>
+    </section>
 
-        </p>
+
+    <section id="explanation">
+        <h2>Code Explanation</h2>
+    
+        <div class="explanation-block">
+            <h3>1. Initialization</h3>
+            <p>We import the required libraries: <code>picarx</code> for controlling the robot, <code>sleep</code> from the <code>time</code> module for delays, and <code>random</code> to make decisions at intersections.</p>
+        </div>
+    
+        <div class="explanation-block">
+            <h3>2. Setting up the Robot</h3>
+            <p><code>px = Picarx()</code> creates an instance of the robot. We set initial values for power, turning offset, and reference grayscale sensor values that help the robot detect the line on the ground.</p>
+        </div>
+    
+        <div class="explanation-block">
+            <h3>3. Handling When the Line is Lost - <code>outHandle()</code></h3>
+            <p>This function helps the robot reorient itself when it loses the line. Based on the last known direction, the robot slightly steers left or right and moves forward in an attempt to rediscover the line.</p>
+        </div>
+    
+        <div class="explanation-block">
+            <h3>4. Deciding the Robot's Current Status - <code>get_status(val_list)</code></h3>
+            <p>This function reads sensor values and determines the robot’s current situation. It checks whether the robot is going forward, at an intersection, or needs to turn. If all sensors detect black, it's likely at an intersection. If only the middle sensor sees black, it moves forward. Left or right sensor readings guide turning. If no black line is detected, it tells the robot to stop.</p>
+        </div>
+    
+        <div class="explanation-block">
+            <h3>5. Adjusting Turns - <code>adjust_turn_direction(gm_state)</code></h3>
+            <p>This function defines how the robot performs turns. For example, when <code>gm_state</code> is <code>'turn_left'</code> or <code>'turn_right'</code>, the robot first moves backward to adjust itself, then moves forward while turning in the selected direction. It also handles small corrections for left and right movements.</p>
+        </div>
+    
+        <div class="explanation-block">
+            <h3>6. Choosing a Path at Intersections - <code>intersection()</code></h3>
+            <p>When the robot detects an intersection (all sensors see black), this function randomly chooses a direction (left, forward, or right). This simulates decision-making in a maze or track with multiple paths.</p>
+        </div>
+    
+        <div class="explanation-block">
+            <h3>7. The Main Control Loop</h3>
+            <p>This is where the robot constantly reads sensor data and acts accordingly. Based on the status returned by <code>get_status()</code>, the robot may go forward, turn, stop, or handle intersections. It also remembers the last direction to help recover when the line is lost. When an intersection is confirmed, it chooses a random direction and performs the action using the <code>adjust_turn_direction()</code> function. The robot continues these decisions in real time, allowing it to follow a line autonomously even on complex paths with intersections and turns.</p>
+        </div>
+    </section>
+    
 </html>

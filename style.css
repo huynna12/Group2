@@ -1,0 +1,220 @@
+/* General Body Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6; /* Light gray background */
+    color: #333; /* Darker text for better readability */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Navbar Styles */
+.navbar {
+    overflow: hidden;
+    background-color: #2b3e50; /* Dark blue-gray background */
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #fff;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar a:hover {
+    background-color: rgb(232, 201, 153); /* Orange accent on hover */
+    color: #2b3e50;
+}
+
+/* Main Heading Style */
+h1 {
+    font-size: 3.5em;
+    text-align: center;
+    color: #333; /* Dark gray for readability */
+    margin-top: 50px;
+}
+
+/* About Section Styles */
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 1100px;
+    margin: 60px auto;
+    gap: 40px;
+    padding: 0 30px;
+}
+
+.about-section img {
+    width: 400px;
+    height: auto;
+    border: 5px solid #ddd; /* Soft gray border */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+.text-box {
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.05); /* Subtle off-white background */
+    border-radius: 12px;
+    padding: 2px 40px;
+    flex-grow: 1;
+}
+
+h3 {
+    font-size: 2em;
+    border-bottom: 2px solid #f7a71d; /* Orange accent border */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Paragraph Styles */
+p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    padding-left: 2em; /* Indents the paragraph */
+}
+
+/* List Styles */
+ul {
+    list-style-type: square;
+    margin-left: 30px;
+    font-size: 1.1em;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+/* Responsive Layout */
+@media screen and (max-width: 900px) {
+    .about-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .text-box {
+        max-width: 100%;
+        text-align: left;
+    }
+
+    .about-section img {
+        width: 90%;
+    }
+}
+
+/* Code Section Styling */
+#code-section {
+    background-color: #1e1e1e; /* Dark background for the code */
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px;
+    color: #dcdcdc; /* Light gray text */
+    font-family: Consolas, Monaco, 'Courier New', monospace;
+    overflow-x: auto;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+#code-section h2 {
+    color: #f7a71d; /* Orange color for section title */
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    border-bottom: 1px solid #444;
+    padding-bottom: 5px;
+}
+
+#code-section pre {
+    margin: 0;
+    white-space: pre-wrap; /* Wrap lines nicely */
+    word-break: break-word;
+}
+
+#code-section code {
+    display: block;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    color: #e8e8e8; /* Light text for better contrast */
+}
+
+#code-section code .keyword {
+    color: #f7a71d; /* Highlight keywords in orange */
+}
+
+#code-section code .comment {
+    color: #6a9955; /* Green color for comments */
+}
+
+#code-section code .string {
+    color: #ce9178; /* Light brown color for strings */
+}
+
+.problem {
+/* There are a list of things in this section, and I want it to be in the center of the page but not so close to the 2 sides, easy to read */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1100px;
+    margin: 60px auto;
+    gap: 40px;
+    padding: 0 30px;
+}
+
+/* I want the <li> tag has some space between each other */
+.problem ol {
+    list-style-type: square;
+    margin-left: 30px;
+    font-size: 1.1em;
+}
+.problem ol li {
+    margin-bottom: 10px;
+}
+
+#code-section {
+    background-color: #1e1e1e;
+    color: #f8f8f2;
+    padding: 20px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    overflow-x: auto;
+}
+
+code {
+    background-color: #2a2a2a;
+    color: #ffa07a;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+#explanation {
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 8px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+#explanation h2 {
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.explanation-block {
+    background-color: #ffffff;
+    border-left: 5px solid #3498db;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+}
+
+.explanation-block h3 {
+    margin-top: 0;
+    color: #2c3e50;
+}

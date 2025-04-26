@@ -1,59 +1,39 @@
 <!DOCTYPE html> 
 <html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Line Following Robot Documentation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    <head> 
+<body>
 
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Line Following Robot Documentation</title>
-        <link rel="stylesheet" href="style.css">
+    <div class="navbar">
+        <a href="Project.html">The Project</a>
+        <a href="Problem.html">The Problem</a>
+        <a href="Clips.html">Clips</a>
+        <a href="Pictures.html">Pictures</a>
+        <a href= "Code.html">The Code</a>
+        <a href= "Journal.html">Journal</a> 
+    </div>
 
+    <h1>Line Following Robot Documentation</h1>
 
-
-
-        <style>
-            body {
-                font-family: 'Times New Roman', Times, serif;
-                color: black;
-                background-color: #7f9292; /* Dark grayish blue */
-                color: white;
-            }
-    
-            .navbar {
-                overflow: hidden;
-                background-color: #333;
-            }
-    
-            .navbar a {
-                float: left;
-                display: block;
-                color: white;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-            }
-    
-            .navbar a:hover {
-                background-color: #6489d3;
-                color: black;
-            }
-        </style>
-    </head>
-    <body>
-    
-        <div class="navbar">
-            <a href="Project.html">The Project</a>
-            <a href="Problem.html">The Problem</a>
-            <a href="Clips.html">Clips</a>
-            <a href= "Code.html">The Code</a>
-            <a href= "Journal.html">Journal</a> 
+    <div class="about-section">
+        <img src="RobotPhoto.jpg" alt="Line Following Robot">
+        <div class="text-box">
+            <p>
+                We are <strong>Group 2</strong> from the <em>CS371 Course</em> at Gettysburg College. This project showcases our progress in solving line following problems using the PiCar-X2 from SunFounder.
+            </p>
+            <p>After 13 meetings, our robot can now:</p>
+            <ul>
+                <li>Follow a continuous line smoothly</li>
+                <li>Reacquire the line after a 90-degree turn (left and right)</li>
+                <li>Detect intersections and decide whether to turn or go straight</li>
+            </ul>
         </div>
-
-        <h1 style="font-size: 4em; margin: 0; color: rgb(41, 41, 41); text-align: center"></h1>
-
-        <div style="position: relative; text-align: center; color: rgb(24, 132, 48); margin-top: 100px;">
-            <img src="RobotPhoto.jpg" style="display: block; margin: 0 auto; max-width: 500px; height: 600px; border: 5px solid rgb(22, 84, 42);">
-            <h2 style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 2em;">Line Following Robot Project</h2>
-        </div>
-
-</html></div>
+    </div>
+    
+</body>
+</html>

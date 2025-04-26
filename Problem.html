@@ -1,56 +1,35 @@
 <!DOCTYPE html> 
 <html lang="en">
 
-    <head> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Line Following Robot Documentation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Line Following Robot Documentation</title>
-        <link rel="stylesheet" href="style.css">
+<body>
+    <div class="navbar">
+        <a href="Project.html">The Project</a>
+        <a href="Problem.html">The Problem</a>
+        <a href="Clips.html">Clips</a>
+        <a href="Pictures.html">Pictures</a>
+        <a href= "Code.html">The Code</a>
+        <a href= "Journal.html">Journal</a> 
+    </div>
 
+    <h1>The Problem</h1>
 
-
-
-        <style>
-            body {
-                font-family: 'Times New Roman', Times, serif;
-                color: black;
-                background-color: #7f9292; /* Dark grayish blue */
-                color: white;
-            }
-    
-            .navbar {
-                overflow: hidden;
-                background-color: #333;
-            }
-    
-            .navbar a {
-                float: left;
-                display: block;
-                color: white;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-            }
-    
-            .navbar a:hover {
-                background-color: #6489d3;
-                color: black;
-            }
-        </style>
-    </head>
-    <body>
-    
-        <div class="navbar">
-            <a href="Project.html">The Project</a>
-            <a href="Problem.html">The Problem</a>
-            <a href="Clips.html">Clips</a>
-            <a href= "Code.html">The Code</a>
-            <a href= "Journal.html">Journal</a> 
-        </div>
-
-        <h1 style="font-size: 4em; margin: 0; color: rgb(41, 41, 41); text-align: center">The Problem</h1>
-
-   
-
+    <div class="problem">
+        <ol>
+            <li><strong>Line-Following:</strong> Implement robot line-following that will follow a line through sudden turns up to 90 degrees.</li>
+            <li><strong>Intersection-Finding:</strong> Implement robot line-following that will follow a line as in (1), but stop when it comes to an intersection of two or more lines.</li>
+            <li><strong>Intersection-Choosing:</strong> Implement robot line-following that will, beyond (1) and (2), exit the intersection at the nth spoke clockwise from the line it travelled.</li>
+            <li><strong>Intersection-Traversing:</strong> Implement robot line-following that will perform (3) in succession given n1, n2, n3, ...</li>
+            <li><strong>Search and Traverse:</strong> Implement robot line-following that, given a graph topology, its current intersection and heading, and its goal intersection and heading, will generate a sequence of moves and perform (4).</li>
+            <li><strong>Localize, Search, and Traverse:</strong> Implement robot line-following that, given all that is given in (4) except its current intersection and heading, will take action to ascertain its state (localize), and then perform (5).</li>
+            <li><strong>Explore, Search, and Traverse:</strong> Implement robot line-following that explores lines and intersections, forms a graph roadmap, and navigates to a graph intersection with the following property: Let d(i,j) be the minimum number of edges to travel to get from intersection i to intersection j. Let D(i) be max(d(i,j)) for all j. A goal intersection has the minimum D(i).</li>
+        </ol>
+    </div>
+    </body>
 </html>
